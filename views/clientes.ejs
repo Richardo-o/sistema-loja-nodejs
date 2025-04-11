@@ -1,24 +1,33 @@
 <%- include ('partials/navbar.ejs')%> <%- include ('partials/header.ejs')%>
 
-<H1>Olá <%= cliente %> Seja Bem-Vindo! </H1>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Clientes</h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <th></th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Endereço</th>
+                </thead>
+                <tbody>
+                    <% clientes.forEach(cliente =>{%>
+                        <tr>
+                            <td style="text-align: center;"><img src="images/user.png" alt="" class="img_cliente"></td>
+                            <td><%= cliente.nome %></td>
+                            <td><%= cliente.cpf %></td>
+                            <td><%= cliente.endereco %></td>
+                        </tr>
+                  <%  }) %>
+            
+                </tbody>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>CPF</th>
-      <th>Endereço</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% clientes.forEach(cliente => { %>
-    <tr>
-      <td><%= cliente.nome %></td>
-      <td><%= cliente.cpf %></td>
-      <td><%= cliente.endereco %></td>
-    </tr>
-    <% }); %>
-  </tbody>
-</table>
+            </table>
+        </div>
+    </div>
+</div>
 
 <%- include ('partials/footer.ejs')%>
