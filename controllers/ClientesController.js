@@ -7,31 +7,36 @@ router.get("/clientes/", (req,res)=>{
     const clientes = 
     [
         {
-            nome: "João",
+            imagem: "/images/bart.png",
+            nome: "Bart",
             cpf: "421.656.674.00",
             endereco: "Rua A., 130, Avenida1",
           },
       
           {
-            nome: "Pedro",
+            imagem: "/images/homer.png",
+            nome: "Homer",
             cpf: "422.256.374.00",
             endereco: "Rua F., 15, Avenida2",
           },
       
           {
-            nome: "Ricardo",
+            imagem: "/images/finn.png",
+            nome: "Finn",
             cpf: "132.856.664.00",
             endereco: "Rua B., 100, Avenida.AB",
           },
       
           {
-            nome: "Maria",
+            imagem: "/images/jake.png",
+            nome: "Jake",
             cpf: "321.651.654.00",
             endereco: "Rua C., 110, Avenida3",
           },
       
           {
-            nome: "Paulo",
+            imagem: "/images/clarencio.png", 
+            nome: "Clarêncio",
             cpf: "221.631.654.00",
             endereco: "Rua Car., 112, AvenidaC2",
           }

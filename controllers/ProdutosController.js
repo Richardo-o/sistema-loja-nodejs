@@ -9,29 +9,34 @@ router.get("/produtos/", (req,res) =>{
 
     const produtos = [
         {
-            nome: "Celular Motorola E22",
-            preco: 1200,
-            categoria: "Eletroportáteis"
+            imagem: "/images/pao.png",
+            nome: "Pão",
+            preco: 20,
+            categoria: "Alimentício"
         },
         {
-            nome: "Tablet Samsung",
-            preco: 900,
-            categoria: "Eletrônicos"
+            imagem: "/images/leite.webp",
+            nome: "Leite",
+            preco: 10,
+            categoria: "Alimentício"
         },
         {
-            nome: "Notebook Lenovo",
-            preco: 3200,
-            categoria: "Computadores"
+            imagem: "/images/limao.webp",
+            nome: "limão",
+            preco: 5,
+            categoria: "Alimentício"
         },
         {
-            nome: "Fone Bluetooth",
-            preco: 150,
-            categoria: "Periféricos"
+            imagem: "/images/alho.png",
+            nome: "Alho-poró",
+            preco: 35,
+            categoria: "Alimentício"
         },
         {
-            nome: "Chinelo",
-            preco: 30,
-            categoria: "Calçados"
+            imagem: "/images/miojo.png",
+            nome: "Miojo",
+            preco: 3,
+            categoria: "Alimentício"
         }
     ]
 

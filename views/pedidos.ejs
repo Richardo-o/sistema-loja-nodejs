@@ -18,7 +18,9 @@
                 <tbody>
                     <% pedidos.forEach(pedido =>{%>
                         <tr>
-                            <td style="text-align: center;"><img src="images/user.png" alt="" class="img_cliente"></td>
+                            <td style="text-align: center;">
+                                <img src="<%= pedido.imagem %>" alt="<%= pedido.numeroPedido %>" class="img_cliente">
+                              </td>
                        
                             <td><%= pedido.numeroPedido %></td>
                             <td><%= pedido.valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) %></td>

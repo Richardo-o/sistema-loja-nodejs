@@ -7,29 +7,29 @@ router.get("/pedidos/", (req, res) => {
 
     const pedidos = [
         {
-            imagem1: '/images/pedido1.png',
+            imagem: '/images/pao.png',
             numeroPedido: 1,
-            valor: 1200
+            valor: 20
         },
         {
-            imagem2: '/images/pedido2.png',
+            imagem: '/images/leite.webp',
             numeroPedido: 2,
-            valor: 900
+            valor: 10
         },
         {
-            imagem3: '/images/pedidos3.png',
+            imagem: '/images/limao.webp',
             numeroPedido: 3,
-            valor: 3200
+            valor: 5
         },
         {
-            imagem4: '/images/pedidos4.png',
+            imagem: '/images/alho.png',
             numeroPedido: 4,
-            valor: 150
+            valor: 35
         },
         {
-            imagem5: '/images/pedidos5.png',
+            imagem: '/images/miojo.png',
             numeroPedido: 5,
-            valor: 30
+            valor: 3
         }
     ]
     
