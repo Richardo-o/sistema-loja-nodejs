@@ -1,54 +1,64 @@
 import express from "express";
+import Cliente from "../models/Cliente.js";
 
 const router = express.Router();
 
-router.get("/clientes/", (req,res)=>{
+router.get("/clientes", (req,res)=>{
+  Cliente.findAll().then(clientes =>{
+    res.render("clientes", {
+      clientes : clientes
+    })
+  }).catch((error)=>{
+    console.log(error);
+  })
+})
 
-    const clientes = 
-    [
-        {
-            imagem: "/images/bart.png",
-            nome: "Bart",
-            cpf: "421.656.674.00",
-            endereco: "Rua A., 130, Avenida1",
-          },
-      
-          {
-            imagem: "/images/homer.png",
-            nome: "Homer",
-            cpf: "422.256.374.00",
-            endereco: "Rua F., 15, Avenida2",
-          },
-      
-          {
-            imagem: "/images/finn.png",
-            nome: "Finn",
-            cpf: "132.856.664.00",
-            endereco: "Rua B., 100, Avenida.AB",
-          },
-      
-          {
-            imagem: "/images/jake.png",
-            nome: "Jake",
-            cpf: "321.651.654.00",
-            endereco: "Rua C., 110, Avenida3",
-          },
-      
-          {
-            imagem: "/images/clarencio.png", 
-            nome: "Clarêncio",
-            cpf: "221.631.654.00",
-            endereco: "Rua Car., 112, AvenidaC2",
-          }
-    ]
+router.post("/clientes/new", (req,res)=>{
+  const nome = req.body.nome
+  const cpf  = req.body.cpf
+  const endereco = req.body.endereco
+  Cliente.create({
+    nome : nome,
+    cpf : cpf,
+    endereco : endereco
+  }).then(()=>{
+    res.redirect("/clientes")
+  })
+})
 
 
-    res.render ("clientes",{
+router.get("/clientes/delete/:id", (req,res)=>{
+  const id = req.params.id
+  Cliente.destroy({
+    where:{
+      id:id
+    }
+  }).then(()=>{
+    res.redirect("/clientes")
+  })
+})
 
-        clientes : clientes,
-        
-    });
+router.get("/clientes/edit/:id", (req,res)=>{
+  const id = req.params.id
+  Cliente.findByPk(id).then(function(cliente){
+    res.render("clienteEdit",{
+      cliente:cliente
+    })
+  })
+})
 
+router.post("/clientes/update/:id", (req,res)=>{
+  const id = req.params.id;
+  const nome = req.body.nome;
+  const cpf = req.body.cpf;
+  const endereco = req.body.endereco;
+
+  Cliente.update(
+    { nome, cpf, endereco },
+    { where: { id } }
+  ).then(() => {
+    res.redirect("/clientes");
+  });
 });
 
-export default router;
+export default router

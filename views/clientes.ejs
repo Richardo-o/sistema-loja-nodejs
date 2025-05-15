@@ -3,6 +3,34 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
+            <h1>Cadastrar cliente</h1>
+        </div>
+        <div class="card-body">
+           <form action="/clientes/new" method="POST">
+            <label>Nome do cliente: </label>
+            <input type="text" name="nome" id="nome" placeholder="Digite o nome do cliente" class="form-control" required>
+
+            <label>Cpf do cliente: </label>
+            <input type="text" name="cpf" id="cpf" placeholder="Digite o cpf do cliente" class="form-control" required>
+            
+           
+              
+           <label>Endereço do cliente: </label>
+           <input type="text" name="endereco" id="endereco" placeholder="Digite o endereço do cliente" class="form-control" required>
+           
+           <button class="btn btn-success" style="margin-top: 10px;">Cadastrar</button>
+        </form>
+             
+
+          
+        </div>
+    </div>
+</div>
+
+
+<div class="container" style="margin-top: 20px ;">
+    <div class="card">
+        <div class="card-header">
             <h1>Clientes</h1>
         </div>
         <div class="card-body">
@@ -12,6 +40,7 @@
                     <th>Nome</th>
                     <th>CPF</th>
                     <th>Endereço</th>
+                    <th style="text-align: center;" colspan="2">Ações</th>
                 </thead>
                 <tbody>
                     <% clientes.forEach(cliente =>{%>
@@ -22,6 +51,8 @@
                             <td><%= cliente.nome %></td>
                             <td><%= cliente.cpf %></td>
                             <td><%= cliente.endereco %></td>
+                            <td><a href="/clientes/edit/<%= cliente.id %>" style="color: white; background-color: orange; padding: 5px; text-decoration: none; border-radius: 10px;" >Editar</a></td>
+                            <td><a style="color: white; background-color: red; padding: 5px; text-decoration: none; border-radius: 10px;" href="/clientes/delete/<%= cliente.id%>">Excluir</a></td>
                         </tr>
                   <%  }) %>
             
