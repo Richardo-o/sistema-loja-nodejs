@@ -30,14 +30,13 @@ app.get("/", (req, res) => {
 
 connection.authenticate()
   .then(() => {
-    console.log("COnexão com o banco de dados feita com sucesso!");
+    console.log("Conexão com o banco de dados feita com sucesso!");
   })
   .catch((error) => {
     console.log(error);
   });
 
-connection
-  .query(`CREATE DATABASE IF NOT EXISTS loja`)
+connection.query(`CREATE DATABASE IF NOT EXISTS loja`)
   .then(() => {
     console.log("O banco de dados está criado.");
   })
